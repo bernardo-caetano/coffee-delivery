@@ -13,7 +13,7 @@ export function Header() {
       <LocalizationCartContainer>
         <Localization>
           <MapPin size={22} color="#4B2995" weight="fill" />
-          <p>Rio de Janeiro - RJ</p>
+          <p>Rio de Janeiro, RJ</p>
         </Localization>
       </LocalizationCartContainer>
     </HeaderContainer>
