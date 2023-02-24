@@ -5,6 +5,7 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding: 2rem 10rem;
 `
 export const LocalizationCartContainer = styled.div`
   display: flex;
@@ -26,4 +27,9 @@ export const Localization = styled.span`
     color: ${(props) => props.theme['purple-dark']};
     font-size: 0.875rem;
   }
+`
+export const Cart = styled.span`
+  background: ${(props) => props.theme['yellow-light']};
+  border-radius: 6px;
+  padding: 0.5rem;
 `
