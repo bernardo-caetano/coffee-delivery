@@ -56,7 +56,7 @@ export const Items = styled.ul`
     justify-content: center;
     gap: 0.75rem;
 
-    span {
+    /* span {
       background: ${(props) => props.theme['yellow-dark']};
       border-radius: 50%;
       width: 2rem;
@@ -64,7 +64,7 @@ export const Items = styled.ul`
       display: flex;
       align-items: center;
       justify-content: center;
-    }
+    } */
   }
 
   //ver como passa props pra dentro do css

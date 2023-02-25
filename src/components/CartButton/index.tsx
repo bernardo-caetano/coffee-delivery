@@ -1,0 +1,18 @@
+import { ShoppingCart } from "phosphor-react";
+import { Cart, cartButtonTypes } from "./styles";
+
+
+
+interface CartButtonProps {
+    color: string;
+    background: cartButtonTypes['background'];
+}
+
+
+export function CartButton({color, background}: CartButtonProps) {
+    return(
+        <Cart>
+          <ShoppingCart background={background} size={22} color={color} weight="fill" />
+        </Cart>
+    )
+}

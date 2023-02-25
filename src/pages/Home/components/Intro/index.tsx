@@ -1,6 +1,6 @@
 import { IntroContainer, IntroContent, Items, Title } from './styles'
 import Coffee from '../../../../assets/images/home-image-coffee.svg'
-import { ShoppingCart } from 'phosphor-react'
+import { IconCircle } from '../IconCircle'
 
 export function Intro() {
   return (
@@ -19,27 +19,20 @@ export function Intro() {
         </Title>
         <Items color="yellow-dark">
           <li>
-            <span>
-              <ShoppingCart size={16} color="#FFFFFF" weight="fill" />
-            </span>
+            <IconCircle element="cart" />
             <p>Compra simples e segura</p>
           </li>
           <li>
-            <span>
-              <ShoppingCart size={16} color="#FFFFFF" weight="fill" />
-            </span>
+            <IconCircle element="box" />
             <p>Compra simples e segura</p>
           </li>
           <li>
-            <span>
-              <ShoppingCart size={16} color="#FFFFFF" weight="fill" />
-            </span>
+            <IconCircle element="timer" />
             <p>Compra simples e segura</p>
           </li>
           <li>
-            <span>
-              <ShoppingCart size={16} color="#FFFFFF" weight="fill" />
-            </span>
+            <IconCircle element="coffee" />
+
             <p>Compra simples e segura</p>
           </li>
         </Items>
