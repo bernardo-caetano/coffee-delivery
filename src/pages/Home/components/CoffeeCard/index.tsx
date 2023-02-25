@@ -1,10 +1,10 @@
-import { Flag } from 'phosphor-react'
+
 import { useState } from 'react'
-import { BaseContainer, CoffeeCardContainer, CoffeeCardContent, ColumnContainer, CounterContainer } from './styles'
+import { BaseContainer, BuyContainer, CoffeeCardContainer, CoffeeCardContent, ColumnContainer, CounterContainer, Tag } from './styles'
 
 interface CoffeeCardProps {
   name: string
-  flags: string[]
+  tags: string[]
   description: string
   price: string
   image: string
@@ -12,7 +12,7 @@ interface CoffeeCardProps {
 
 export function CoffeeCard({
   name,
-  flags,
+  tags,
   description,
   price,
   image,
@@ -24,24 +24,26 @@ export function CoffeeCard({
   return (
     <CoffeeCardContainer>
       <CoffeeCardContent>
-        <BaseContainer>
+        
         <img src={image} alt={name}/>
-        </BaseContainer>
+        
         <BaseContainer>
-        {flags.map(flag => (<Flag>{flag}</Flag>))}
+        {tags.map(tag => (<Tag>{tag}</Tag>))}
         </BaseContainer>
         <ColumnContainer>
           <h4>{name}</h4>
           <p>{description}</p>
         </ColumnContainer>
-        <BaseContainer>
+        <BuyContainer>
           <span><p>R$</p>{price}</span>
+          
           <CounterContainer>
             <button type='button' onClick={() => setCounter(prevState => Math.max(prevState - 1,1))}>-</button>
               {counter}
             <button type='button' onClick={() => setCounter(prevState => prevState + 1)}>+</button>
           </CounterContainer>
-        </BaseContainer>
+        </BuyContainer>
+          
         
 
         </CoffeeCardContent>

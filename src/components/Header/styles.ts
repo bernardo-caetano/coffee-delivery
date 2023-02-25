@@ -28,8 +28,4 @@ export const Localization = styled.span`
     font-size: 0.875rem;
   }
 `
-export const Cart = styled.span`
-  background: ${(props) => props.theme['yellow-light']};
-  border-radius: 6px;
-  padding: 0.5rem;
-`
+

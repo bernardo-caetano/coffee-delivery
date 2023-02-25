@@ -19,4 +19,5 @@ export const CoffeeListContent = styled.div`
   justify-content: center;
   align-items: center;
   grid-template-columns: auto auto auto auto;
+  gap: 2.5rem 2rem;
 `

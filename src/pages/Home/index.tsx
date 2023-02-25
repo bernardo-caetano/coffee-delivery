@@ -14,7 +14,7 @@ export function Home() {
               key={coffee.id}
               name={coffee.name}
               description={coffee.description}
-              flags={coffee.flags}
+              tags={coffee.tags}
               price={coffee.price}
               image={coffee.image} />
           ))}
