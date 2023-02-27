@@ -1,5 +1,5 @@
 import { Intro } from './components/Intro'
-import { CoffeeListContainer, CoffeeListContent, HomeContainer } from './styles'
+import { CoffeeListContainer, CoffeeListContent, HomeContainer, TitleContainer } from './styles'
 import { coffeeList } from '../../assets/content/coffeeList'
 import { CoffeeCard } from './components/CoffeeCard'
 export function Home() {
@@ -7,7 +7,10 @@ export function Home() {
     <HomeContainer>
       <Intro />
       <CoffeeListContainer>
+        <TitleContainer>
         <h3>Nossos cafés</h3>
+        </TitleContainer>
+        
         <CoffeeListContent>
           {coffeeList.map((coffee) => (
             <CoffeeCard

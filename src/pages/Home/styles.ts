@@ -12,6 +12,25 @@ export const CoffeeListContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  
+`
+
+export const TitleContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  h3 {
+    font-family: 'Baloo 2';
+    font-weight: 800;
+    font-size: 2rem;
+    line-height: 130%;
+    color: ${props => props.theme['base-subtitle']};
+    margin-bottom: 3.375rem;
+    }
+
 `
 
 export const CoffeeListContent = styled.div`

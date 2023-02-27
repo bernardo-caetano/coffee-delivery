@@ -1,6 +1,6 @@
 
 import { useState } from 'react'
-import { BaseContainer, BuyContainer, CoffeeCardContainer, CoffeeCardContent, ColumnContainer, CounterContainer, Tag } from './styles'
+import {  BuyContainer, CoffeeCardContainer, CoffeeCardContent, CounterContainer, InfoContainer, Tag, TagContainer } from './styles'
 
 interface CoffeeCardProps {
   name: string
@@ -27,15 +27,15 @@ export function CoffeeCard({
         
         <img src={image} alt={name}/>
         
-        <BaseContainer>
+        <TagContainer>
         {tags.map(tag => (<Tag>{tag}</Tag>))}
-        </BaseContainer>
-        <ColumnContainer>
+        </TagContainer>
+        <InfoContainer>
           <h4>{name}</h4>
           <p>{description}</p>
-        </ColumnContainer>
+        </InfoContainer>
         <BuyContainer>
-          <span><p>R$</p>{price}</span>
+          <span><p>R$</p><p>{price}</p></span>
           
           <CounterContainer>
             <button type='button' onClick={() => setCounter(prevState => Math.max(prevState - 1,1))}>-</button>
