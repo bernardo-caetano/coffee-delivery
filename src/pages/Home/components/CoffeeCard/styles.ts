@@ -110,4 +110,5 @@ display: flex;
 
 export const TagContainer = styled(BaseContainer)`
   margin: 0.75rem 0 1rem 0;
+  gap: 0.25rem;
 `

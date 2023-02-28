@@ -5,6 +5,7 @@ export const IntroContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 3.5rem;
+  width: 100%;
 `
 export const IntroContent = styled(IntroContainer)`
   flex-direction: column;

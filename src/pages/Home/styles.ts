@@ -5,13 +5,25 @@ export const HomeContainer = styled.main`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 0rem 10rem;
+  width: 100%;
+  padding-bottom: 9.8125rem;
 `
+
+export const HomeContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 70rem;
+  width: 100%;
+`
+
 export const CoffeeListContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100%;
 
   
 `
@@ -39,4 +51,5 @@ export const CoffeeListContent = styled.div`
   align-items: center;
   grid-template-columns: auto auto auto auto;
   gap: 2.5rem 2rem;
+  width: 100%;
 `

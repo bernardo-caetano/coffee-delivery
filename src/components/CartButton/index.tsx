@@ -11,8 +11,8 @@ interface CartButtonProps {
 
 export function CartButton({color, background}: CartButtonProps) {
     return(
-        <Cart>
-          <ShoppingCart background={background} size={22} color={color} weight="fill" />
+        <Cart background={background}>
+          <ShoppingCart  size={22}  color={color} weight="fill" />
         </Cart>
     )
 }

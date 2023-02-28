@@ -3,9 +3,9 @@ import styled from 'styled-components'
 export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
-  padding: 2rem 10rem;
+  padding: 2rem 0;
 `
 export const LocalizationCartContainer = styled.div`
   display: flex;
@@ -28,4 +28,10 @@ export const Localization = styled.span`
     font-size: 0.875rem;
   }
 `
-
+export const HeaderContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 70rem;
+`

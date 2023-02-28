@@ -1,10 +1,11 @@
 import { Intro } from './components/Intro'
-import { CoffeeListContainer, CoffeeListContent, HomeContainer, TitleContainer } from './styles'
+import { CoffeeListContainer, CoffeeListContent, HomeContainer, HomeContent, TitleContainer } from './styles'
 import { coffeeList } from '../../assets/content/coffeeList'
 import { CoffeeCard } from './components/CoffeeCard'
 export function Home() {
   return (
     <HomeContainer>
+      <HomeContent>
       <Intro />
       <CoffeeListContainer>
         <TitleContainer>
@@ -23,6 +24,7 @@ export function Home() {
           ))}
         </CoffeeListContent>
       </CoffeeListContainer>
+      </HomeContent>
     </HomeContainer>
   )
 }

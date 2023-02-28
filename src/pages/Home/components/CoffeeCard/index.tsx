@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import { CartButton } from '../../../../components/CartButton'
 import {  BuyContainer, CoffeeCardContainer, CoffeeCardContent, CounterContainer, InfoContainer, Tag, TagContainer } from './styles'
 
 interface CoffeeCardProps {
@@ -42,6 +43,7 @@ export function CoffeeCard({
               {counter}
             <button type='button' onClick={() => setCounter(prevState => prevState + 1)}>+</button>
           </CounterContainer>
+          <CartButton background='purpleDark' color='#FFFFFF'/>
         </BuyContainer>
           
         
