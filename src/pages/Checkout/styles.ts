@@ -39,15 +39,15 @@ export const Title = styled.div`
 `
 
 export const FormContainer = styled(BaseContainer)`
-  padding: 2.5rem;
-  width: 40rem;
-  height: 23.25rem;
-  background: ${props => props.theme['base-card']};
-  border-radius: 6px;
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
+    padding: 2.5rem;
+    width: 40rem;
+    height: 23.25rem;
+    background: ${props => props.theme['base-card']};
+    border-radius: 6px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
 `
 
 export const PaymentContainer = styled(BaseContainer)`
@@ -74,39 +74,4 @@ export const CoffeeSelectedContent = styled(BaseContainer)`
   background: ${props => props.theme['base-card']};
   border-radius: 6px 44px;
 `
-export const FormTitle = styled(BaseContainer)`
-  height: 2.75rem;
-`
 
-export const IconContainer = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  height: 100%;
-`
-
-export const InfoContent = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.125rem;
-
-  p{
-    line-height: 130%;
-    align-self: stretch;
-    flex-grow: 0;
-  }
-
-  p:first-child {
-    color:  ${props => props.theme['base-subtitle']};
-    order: 0;
-  }
-
-  p:last-child {
-    font-size: 0.875rem;
-    color: ${props => props.theme['base-text']};
-    flex: none;
-    order: 1;
-  }
-`
