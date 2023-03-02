@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
 }
 
+:focus {
+  outline: 0;
+}
+
 body{
   background: ${(props: any) => props.theme.background};
   color: ${(props) => props.theme['base-text']};

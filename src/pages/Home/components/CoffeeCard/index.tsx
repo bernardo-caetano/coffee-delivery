@@ -29,7 +29,7 @@ export function CoffeeCard({
         <img src={image} alt={name}/>
         
         <TagContainer>
-        {tags.map(tag => (<Tag>{tag}</Tag>))}
+        {tags.map(tag => (<Tag key={tag}>{tag}</Tag>))}
         </TagContainer>
         <InfoContainer>
           <h4>{name}</h4>
