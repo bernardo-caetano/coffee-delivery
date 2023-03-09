@@ -146,3 +146,10 @@ export const PaymentButton = styled.button`
     background: ${props => props.theme['purple-ligth']};
   }
 `
+
+export const CoffeeListContent = styled(BaseContainer)`
+  flex-direction: column;
+`
+export const TotalPriceContent = styled(BaseContainer)`
+  flex-direction: column;
+`

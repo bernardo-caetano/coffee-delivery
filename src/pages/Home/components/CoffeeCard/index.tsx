@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import { CartButton } from '../../../../components/CartButton'
+import { CounterButton } from '../../../../components/CounterButton'
 import {  BuyContainer, CoffeeCardContainer, CoffeeCardContent, CounterContainer, InfoContainer, Tag, TagContainer } from './styles'
 
 interface CoffeeCardProps {
@@ -38,11 +39,7 @@ export function CoffeeCard({
         <BuyContainer>
           <span><p>R$</p><p>{price}</p></span>
           
-          <CounterContainer>
-            <button type='button' onClick={() => setCounter(prevState => Math.max(prevState - 1,1))}>-</button>
-              {counter}
-            <button type='button' onClick={() => setCounter(prevState => prevState + 1)}>+</button>
-          </CounterContainer>
+          <CounterButton counter={counter} setCounter={setCounter}/>
           <CartButton background='purpleDark' color='#FFFFFF'/>
         </BuyContainer>
           

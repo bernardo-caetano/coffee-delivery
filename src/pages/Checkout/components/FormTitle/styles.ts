@@ -7,6 +7,7 @@ export const FormTitleContainer = styled.div`
     align-items: center;
     justify-content: center;
     height: 2.75rem;
+    gap: 0.5rem;
 `
 
 export const IconContainer = styled.div`
