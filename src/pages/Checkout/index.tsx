@@ -2,6 +2,7 @@ import { Bank, CreditCard, Money } from 'phosphor-react'
 import { CoffeeItem } from './components/CoffeeItem'
 import { FormTitle } from './components/FormTitle'
 import { AskContainer, CheckoutContainer, CoffeeListContent, CoffeeSelectedContainer, CoffeeSelectedContent, FormContainer, FormContent, Input, InputContainer, PaymentButton, PaymentContainer, PaymmentContent, Title, TotalPriceContent } from './styles'
+import { orderCoffeeList } from "../../assets/content/orderCoffeeList"
 
 export function Checkout() {
   return (
@@ -48,9 +49,14 @@ export function Checkout() {
         <Title><h2>Cafés selecionados</h2></Title>
         <CoffeeSelectedContent>
           <CoffeeListContent>
-            <CoffeeItem/>
-            <CoffeeItem/>
-            <CoffeeItem/>
+            {orderCoffeeList.map((order:any) => {
+              return(
+                <CoffeeItem key={order.id} name={order.name} amount={order.amount} image={order.image} price={order.price}/>
+              )
+            })}
+           
+          
+           
           </CoffeeListContent>
           <TotalPriceContent>
             <span><p>Total de itens</p> <p>R$ 29,70</p></span>

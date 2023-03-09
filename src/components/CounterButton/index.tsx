@@ -1,11 +1,13 @@
 import { CounterContainer } from "./styles";
 
-
-export function CounterButton(){
+interface CounterButtonProps {
+  amount: number;
+}
+export function CounterButton({amount = 1}:CounterButtonProps){
     return(
         <CounterContainer>
             <button type='button' /* onClick={() => setCounter(prevState => Math.max(prevState - 1,1))}*/>-</button>
-              1
+              {amount}
             <button type='button'/* onClick={() => setCounter(prevState => prevState + 1)}*/>+</button>
           </CounterContainer>
     )

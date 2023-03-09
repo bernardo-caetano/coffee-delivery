@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { CartButton } from '../../../../components/CartButton'
 import { CounterButton } from '../../../../components/CounterButton'
-import {  BuyContainer, CoffeeCardContainer, CoffeeCardContent, CounterContainer, InfoContainer, Tag, TagContainer } from './styles'
+import {  BuyContainer, CoffeeCardContainer, CoffeeCardContent, InfoContainer, Tag, TagContainer } from './styles'
 
 interface CoffeeCardProps {
   name: string
@@ -39,7 +39,7 @@ export function CoffeeCard({
         <BuyContainer>
           <span><p>R$</p><p>{price}</p></span>
           
-          <CounterButton counter={counter} setCounter={setCounter}/>
+          <CounterButton />
           <CartButton background='purpleDark' color='#FFFFFF'/>
         </BuyContainer>
           

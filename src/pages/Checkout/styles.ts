@@ -82,9 +82,10 @@ export const CoffeeSelectedContainer = styled(BaseContainer)`
 export const CoffeeSelectedContent = styled(BaseContainer)`
   padding: 2.5rem;
   width: 28rem;
-  height: 23.125rem;
+  min-height: 23.125rem;
   background: ${props => props.theme['base-card']};
   border-radius: 6px 44px;
+  flex-direction: column;
 `
 export const FormContent = styled.div`
   display: flex;
@@ -149,7 +150,9 @@ export const PaymentButton = styled.button`
 
 export const CoffeeListContent = styled(BaseContainer)`
   flex-direction: column;
+  width: 100%;
 `
 export const TotalPriceContent = styled(BaseContainer)`
   flex-direction: column;
+  width: 100%;
 `
