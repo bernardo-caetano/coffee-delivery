@@ -155,4 +155,47 @@ export const CoffeeListContent = styled(BaseContainer)`
 export const TotalPriceContent = styled(BaseContainer)`
   flex-direction: column;
   width: 100%;
+  gap: 0.75rem 0;
+
+  span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+
+      p{
+        font-size: 0.875rem;
+        line-height: 130%;
+        color: ${props => props.theme['base-text']};
+        
+      }
+  }
+
+  button {
+    margin-top: 0.75rem;
+    padding: 0.75rem 7.34375rem;
+    background: ${props => props.theme.yellow};
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 160%;
+    text-transform: uppercase;
+    color: ${props => props.theme.white};;
+    font-stretch: 100;
+  }
+
+`
+
+export const TotalInfo = styled.span`
+
+p{
+  font-weight: 700;
+  font-size: 1.25rem !important;
+  line-height: 130%;
+  color: ${props => props.theme['base-subtitle']} !important;
+}
 `

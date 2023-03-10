@@ -1,6 +1,6 @@
 import { IntroContainer, IntroContent, Items, Title } from './styles'
 import Coffee from '../../../../assets/images/home-image-coffee.svg'
-import { IconCircle } from '../IconCircle'
+import { IconCircle } from '../../../../components/IconCircle'
 
 export function Intro() {
   return (

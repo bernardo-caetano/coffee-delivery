@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export type items = 'cart' | 'box' | 'timer' | 'coffee'
+export type items = 'cart' | 'box' | 'timer' | 'coffee' | 'map' | 'dollar'
 
 interface IconContainerProps {
   element: items
@@ -11,6 +11,8 @@ const iconContainerVariants = {
   box: '#574F4D',
   timer: '#DBAC2C',
   coffee: '#8047F8',
+  map: '#8047F8',
+  dollar: '#C47F17'
 }
 
 export const IconContainer = styled.span<IconContainerProps>`

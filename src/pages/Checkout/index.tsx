@@ -1,7 +1,7 @@
 import { Bank, CreditCard, Money } from 'phosphor-react'
 import { CoffeeItem } from './components/CoffeeItem'
 import { FormTitle } from './components/FormTitle'
-import { AskContainer, CheckoutContainer, CoffeeListContent, CoffeeSelectedContainer, CoffeeSelectedContent, FormContainer, FormContent, Input, InputContainer, PaymentButton, PaymentContainer, PaymmentContent, Title, TotalPriceContent } from './styles'
+import { AskContainer, CheckoutContainer, CoffeeListContent, CoffeeSelectedContainer, CoffeeSelectedContent, FormContainer, FormContent, Input, InputContainer, PaymentButton, PaymentContainer, PaymmentContent, Title, TotalInfo, TotalPriceContent } from './styles'
 import { orderCoffeeList } from "../../assets/content/orderCoffeeList"
 
 export function Checkout() {
@@ -54,14 +54,11 @@ export function Checkout() {
                 <CoffeeItem key={order.id} name={order.name} amount={order.amount} image={order.image} price={order.price}/>
               )
             })}
-           
-          
-           
           </CoffeeListContent>
           <TotalPriceContent>
             <span><p>Total de itens</p> <p>R$ 29,70</p></span>
             <span><p>Entrega</p> <p>R$ 3,50</p></span>
-            <span><p>Total</p> <p>R$ 32,20</p></span>
+            <TotalInfo><p>Total</p> <p>R$ 32,20</p></TotalInfo>
             <button type="button">CONFIRMAR PEDIDO</button>
           </TotalPriceContent>
         </CoffeeSelectedContent>

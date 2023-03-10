@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
+import { Coffee, CurrencyDollar, MapPin, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { IconContainer, items } from './styles'
 
 interface IconContainerProps {
@@ -30,6 +30,18 @@ export function IconCircle({ element = 'cart' }: IconContainerProps) {
       return (
         <IconContainer element={element}>
           <Coffee size={16} color="#FFFFFF" weight="fill" />
+        </IconContainer>
+      )
+    case 'map':
+      return (
+        <IconContainer element={element}>
+          <MapPin size={16} color="#FFFFFF" weight="fill" />
+        </IconContainer>
+      )
+    case 'dollar':
+      return (
+        <IconContainer element={element}>
+          <CurrencyDollar size={16} color="#FFFFFF" weight="fill" />
         </IconContainer>
       )
   }
