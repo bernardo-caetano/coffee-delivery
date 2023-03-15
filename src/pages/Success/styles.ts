@@ -14,6 +14,7 @@ export const SuccessContainer = styled(BaseContainer)`
 export const Title = styled(BaseContainer)`
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 2.5rem;
 
   h1 {
     font-family: 'Baloo 2';

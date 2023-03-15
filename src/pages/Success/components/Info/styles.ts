@@ -13,7 +13,6 @@ export const InfoContent = styled(BaseContainer)`
 `
 export const DetailContent = styled(BaseContainer)`
     flex-direction: column;
-    gap:0.5rem;
     align-items: flex-start;
 
     span {
