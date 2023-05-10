@@ -19,6 +19,7 @@ export const Cart = styled.button<CartProps>`
   height: 2.375rem;
   width: 2.375rem;
   border: none;
+  cursor: pointer;
 
   ${props => {
     return `background: ${cartColors[props.background]}`
