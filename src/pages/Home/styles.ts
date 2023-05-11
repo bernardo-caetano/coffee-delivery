@@ -24,8 +24,6 @@ export const CoffeeListContainer = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-
-  
 `
 
 export const TitleContainer = styled.div`
@@ -39,10 +37,9 @@ export const TitleContainer = styled.div`
     font-weight: 800;
     font-size: 2rem;
     line-height: 130%;
-    color: ${props => props.theme['base-subtitle']};
+    color: ${(props) => props.theme['base-subtitle']};
     margin-bottom: 3.375rem;
-    }
-
+  }
 `
 
 export const CoffeeListContent = styled.div`

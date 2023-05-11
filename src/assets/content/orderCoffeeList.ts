@@ -1,4 +1,4 @@
-import {v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 import arabe from '../images/coffee/arabe.svg'
 import cafeComLeite from '../images/coffee/cafe-com-leite.svg'
@@ -29,17 +29,19 @@ export const orderCoffeeList = [
     price: '9,90',
     image: tradicional,
     amount: 3,
-  },{
+  },
+  {
     id: uuidv4(),
     name: 'Expresso Tradicional',
     price: '9,90',
     image: tradicional,
     amount: 3,
-  },{
+  },
+  {
     id: uuidv4(),
     name: 'Expresso Tradicional',
     price: '9,90',
     image: tradicional,
     amount: 3,
-  }
+  },
 ]

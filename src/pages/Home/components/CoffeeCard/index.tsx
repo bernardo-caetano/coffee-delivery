@@ -1,55 +1,93 @@
-
-import { useState } from 'react'
-import { CartButton } from '../../../../components/CartButton'
-import {  BuyContainer, CoffeeCardContainer, CoffeeCardContent, CounterContainer, InfoContainer, Tag, TagContainer } from './styles'
+import { useContext, useState } from 'react'
+import {
+  BuyContainer,
+  Cart,
+  CoffeeCardContainer,
+  CoffeeCardContent,
+  CounterContainer,
+  InfoContainer,
+  Tag,
+  TagContainer,
+} from './styles'
+import { CartContext } from '../../../../contexts/CartContext'
+import { ShoppingCart } from 'phosphor-react'
 
 interface CoffeeCardProps {
-  name: string
-  tags: string[]
-  description: string
-  price: string
-  image: string
+  coffeeData: {
+    id: string
+    name: string
+    tags: string[]
+    description: string
+    price: string
+    image: string
+  }
 }
 
-export function CoffeeCard({
-  name,
-  tags,
-  description,
-  price,
-  image,
-}: CoffeeCardProps) {
+export function CoffeeCard({ coffeeData }: CoffeeCardProps) {
+  const { data, setDataPopulate } = useContext(CartContext)
   const [counter, setCounter] = useState<number>(1)
 
-  
+  function insertCoffeData() {
+    const index = data.cart?.findIndex((item) => item.id === coffeeData.id)
+    const cartDataUpdater = { ...data }
+    if (index !== -1) {
+      cartDataUpdater.cart[index].amount = counter
+      setDataPopulate(cartDataUpdater)
+    } else {
+      cartDataUpdater.cart.push({
+        id: coffeeData.id,
+        name: coffeeData.name,
+        amount: counter,
+        image: coffeeData.image,
+        price: coffeeData.price,
+      })
+      setDataPopulate(cartDataUpdater)
+    }
+  }
 
   return (
     <CoffeeCardContainer>
       <CoffeeCardContent>
-        
-        <img src={image} alt={name}/>
-        
+        <img src={coffeeData.image} alt={coffeeData.name} />
+
         <TagContainer>
-        {tags.map(tag => (<Tag key={tag}>{tag}</Tag>))}
+          {coffeeData.tags.map((tag) => (
+            <Tag key={tag}>{tag}</Tag>
+          ))}
         </TagContainer>
         <InfoContainer>
-          <h4>{name}</h4>
-          <p>{description}</p>
+          <h4>{coffeeData.name}</h4>
+          <p>{coffeeData.description}</p>
         </InfoContainer>
         <BuyContainer>
-          <span><p>R$</p><p>{price}</p></span>
-          
-         
-          <CounterContainer>
-            <button type='button'  onClick={() => setCounter((prevState:number) => Math.max(prevState - 1,1))}>-</button>
-              {counter}
-            <button type='button' onClick={() => setCounter((prevState:number) => prevState + 1)}>+</button>
-          </CounterContainer>
-          <CartButton background='purpleDark' color='#FFFFFF'/>
-        </BuyContainer>
-          
-        
+          <span>
+            <p>R$</p>
+            <p>{coffeeData.price}</p>
+          </span>
 
-        </CoffeeCardContent>
+          <CounterContainer>
+            <button
+              type="button"
+              onClick={() =>
+                setCounter((prevState: number) => Math.max(prevState - 1, 1))
+              }
+            >
+              -
+            </button>
+            {counter}
+            <button
+              type="button"
+              onClick={() => setCounter((prevState: number) => prevState + 1)}
+            >
+              +
+            </button>
+          </CounterContainer>
+
+          <Cart background={'purpleDark'} onClick={() => insertCoffeData()}>
+            <ShoppingCart size={22} color={'#FFFFFF'} weight="fill" />
+          </Cart>
+        </BuyContainer>
+      </CoffeeCardContent>
     </CoffeeCardContainer>
   )
 }

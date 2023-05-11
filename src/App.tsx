@@ -9,9 +9,9 @@ function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-      <CartContextProvider>
-        <Router />
-      </CartContextProvider>
+        <CartContextProvider>
+          <Router />
+        </CartContextProvider>
       </BrowserRouter>
 
       <GlobalStyle />
@@ -20,5 +20,3 @@ function App() {
 }
 
 export default App
-
-

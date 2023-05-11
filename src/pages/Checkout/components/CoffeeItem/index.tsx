@@ -1,40 +1,72 @@
-import { Trash } from "phosphor-react"
-import { CounterButton } from "../../../../components/CounterButton"
-import {   ActionsContainer, CoffeeItemContainer, CoffeeItemContent, DetailsContainer, Title } from "./styles"
-
+import { Trash } from 'phosphor-react'
+import {
+  ActionsContainer,
+  CoffeeItemContainer,
+  CoffeeItemContent,
+  CounterContainer,
+  DetailsContainer,
+  Title,
+} from './styles'
+import { useContext, useState } from 'react'
+import { CartContext } from '../../../../contexts/CartContext'
 
 interface CoffeeItemProps {
-    image: string,
-    name: string,
-    price: number,
-    amount: number,
+  coffeeData: {
+    image: string
+    name: string
+    price: number
+    amount: number
+  }
 }
 
-export function CoffeeItem({image,name, price, amount}:CoffeeItemProps){
-    return(
-        
-          <CoffeeItemContainer>
-            <CoffeeItemContent>
-                <img src={image} alt={name} />
-                <DetailsContainer>
-                    <Title>
-                        <p>{name}</p>
-                        <p>R$ {price}</p>
-                    </Title>
-                    <ActionsContainer>
-                        <CounterButton amount={amount}/>
-                        <button type="button">
-                            <Trash size={16} color="#8047F8"/>
-                            REMOVER
-                        </button>
-                    </ActionsContainer>
-                </DetailsContainer>
-                
-            </CoffeeItemContent>
-            
-            
-            <hr/>
-          </CoffeeItemContainer>
-          
-    )
+export function CoffeeItem({ coffeeData }: CoffeeItemProps) {
+  const [counter, setCounter] = useState<number>(1)
+  const { data, setDataPopulate } = useContext(CartContext)
+
+  function removeItem() {
+    const index = data.cart.findIndex((item) => {
+      item.id === coffeeData.id
+    })
+    const dataUpdater = { ...data }
+    dataUpdater.cart.slice(index, index + 1)
+    setDataPopulate(dataUpdater)
+  }
+  return (
+    <CoffeeItemContainer>
+      <CoffeeItemContent>
+        <img src={coffeeData.image} alt={coffeeData.name} />
+        <DetailsContainer>
+          <Title>
+            <p>{coffeeData.name}</p>
+            <p>R$ {coffeeData.price}</p>
+          </Title>
+          <ActionsContainer>
+            <CounterContainer>
+              <button
+                type="button"
+                onClick={() =>
+                  setCounter((prevState: number) => Math.max(prevState - 1, 1))
+                }
+              >
+                -
+              </button>
+              {counter}
+              <button
+                type="button"
+                onClick={() => setCounter((prevState: number) => prevState + 1)}
+              >
+                +
+              </button>
+            </CounterContainer>
+            <button type="button" onClick={() => removeItem()}>
+              <Trash size={16} color="#8047F8" />
+              REMOVER
+            </button>
+          </ActionsContainer>
+        </DetailsContainer>
+      </CoffeeItemContent>
+
+      <hr />
+    </CoffeeItemContainer>
+  )
 }

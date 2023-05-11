@@ -12,7 +12,7 @@ const iconContainerVariants = {
   timer: '#DBAC2C',
   coffee: '#8047F8',
   map: '#8047F8',
-  dollar: '#C47F17'
+  dollar: '#C47F17',
 }
 
 export const IconContainer = styled.span<IconContainerProps>`

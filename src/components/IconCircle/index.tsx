@@ -1,5 +1,12 @@
 /* eslint-disable no-undef */
-import { Coffee, CurrencyDollar, MapPin, Package, ShoppingCart, Timer } from 'phosphor-react'
+import {
+  Coffee,
+  CurrencyDollar,
+  MapPin,
+  Package,
+  ShoppingCart,
+  Timer,
+} from 'phosphor-react'
 import { IconContainer, items } from './styles'
 
 interface IconContainerProps {

@@ -1,4 +1,4 @@
-import {v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 
 import arabe from '../images/coffee/arabe.svg'
 import cafeComLeite from '../images/coffee/cafe-com-leite.svg'

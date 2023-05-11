@@ -1,27 +1,49 @@
 import styled from 'styled-components'
 
+export type cartButtonTypes = {
+  color: '#FFFFFF' | '#C47F17'
+  background: 'purpleDark' | 'yellowLight'
+}
+
+interface CartProps {
+  background: cartButtonTypes['background']
+}
+
+const cartColors = {
+  yellowLight: '#F1E9C9',
+  purpleDark: '#4B2995',
+}
+
+export const Cart = styled.button<CartProps>`
+  border-radius: 6px;
+  height: 2.375rem;
+  width: 2.375rem;
+  border: none;
+  cursor: pointer;
+
+  ${(props) => {
+    return `background: ${cartColors[props.background]}`
+  }}
+`
+
 export const BaseContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-
-  
 `
 
-export const CoffeeCardContainer = styled(BaseContainer)`
- 
-`
+export const CoffeeCardContainer = styled(BaseContainer)``
 export const CoffeeCardContent = styled(BaseContainer)`
-flex-direction: column;
-width: 16rem;
-height: 19.375rem;
-padding: 0 1.25rem 1.25rem 1.25rem;
-background: ${props => props.theme['base-card']};
-border-radius: 6px 36px;
- img {
-  margin-top: -1.25rem;
- }
+  flex-direction: column;
+  width: 16rem;
+  height: 19.375rem;
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  background: ${(props) => props.theme['base-card']};
+  border-radius: 6px 36px;
+  img {
+    margin-top: -1.25rem;
+  }
 `
 
 export const InfoContainer = styled(BaseContainer)`
@@ -36,28 +58,26 @@ export const InfoContainer = styled(BaseContainer)`
     display: flex;
     align-items: flex-end;
     text-align: center;
-    color: ${props => props.theme['base-subtitle']}
+    color: ${(props) => props.theme['base-subtitle']};
   }
 
   p {
     font-size: 0.875rem;
     line-height: 130%;
     text-align: center;
-    color: ${props => props.theme['base-label']}
+    color: ${(props) => props.theme['base-label']};
   }
 `
 
 export const Tag = styled.span`
-padding: 0.25rem 0.5rem;
-border-radius:6.25rem;
-  background: ${props => props.theme['yellow-light']};
-  color: ${props => props.theme['yellow-dark']};
+  padding: 0.25rem 0.5rem;
+  border-radius: 6.25rem;
+  background: ${(props) => props.theme['yellow-light']};
+  color: ${(props) => props.theme['yellow-dark']};
 `
 
-
-
 export const BuyContainer = styled.div`
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -73,7 +93,7 @@ display: flex;
       font-size: 0.875rem;
       line-height: 130%;
       text-align: right;
-      color: ${props => props.theme['base-text']};
+      color: ${(props) => props.theme['base-text']};
     }
     p:last-child {
       font-family: 'Baloo 2';
@@ -83,7 +103,6 @@ display: flex;
       letter-spacing: 0em;
       text-align: right;
     }
-    
   }
 `
 
@@ -93,7 +112,7 @@ export const TagContainer = styled(BaseContainer)`
 `
 
 export const CounterContainer = styled.span`
-  background: ${props => props.theme['base-button']};
+  background: ${(props) => props.theme['base-button']};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -110,8 +129,7 @@ export const CounterContainer = styled.span`
   button {
     border: none;
     background: transparent;
-    color: ${props => props.theme.purple};
+    color: ${(props) => props.theme.purple};
     cursor: pointer;
-    
   }
 `

@@ -1,32 +1,82 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 
-interface createContextTypes {
-    cartData:cartDataValuesTypes[]
-    setCartDataPopulate: (value: cartDataValuesTypes[]) => void
-} 
-
-interface CartContextProviderProps {
-    children: ReactNode
-}
-
-interface cartDataValuesTypes {
+export interface dataValuesTypes {
+  cart: {
     id?: string
     name?: string
     price?: string
     image?: string
     amount?: number
+  }[]
+  address: {
+    cep: number | null
+    street: string
+    number: number | null
+    complement: string
+    neighbor: string
+    city: string
+    uf: string
+  }
+  payment: 'credit' | 'debit' | 'money' | ''
+}
+
+interface createContextTypes {
+  data: dataValuesTypes
+  setDataPopulate: (value: dataValuesTypes) => void
+}
+
+interface CartContextProviderProps {
+  children: ReactNode
 }
 
 export const CartContext = createContext({} as createContextTypes)
 
-export function CartContextProvider({children}:CartContextProviderProps) {
-    const [cartData, setCartData] = useState([{id: 'jdjdj', name: 'dsndk', amount: 5,image:'url',price:'5,90'}])
-    function setCartDataPopulate(value:any){
-        setCartData(value)
+export function CartContextProvider({ children }: CartContextProviderProps) {
+  const [data, setData] = useState<dataValuesTypes>({
+    cart: [],
+    address: {
+      cep: null,
+      street: '',
+      number: null,
+      complement: '',
+      neighbor: '',
+      city: '',
+      uf: '',
+    },
+    payment: '',
+  })
+
+  function setDataPopulate(value: dataValuesTypes) {
+    setData(value)
+  }
+
+  useEffect(() => {
+    if (data.cart.length > 0) {
+      localStorage.setItem(
+        '@coffee-delivery-data-v-1.0.0',
+        JSON.stringify(data),
+      )
     }
-    return (
-        <CartContext.Provider value={{cartData,setCartDataPopulate}}>
-         {children}
-        </CartContext.Provider>
+  }, [data])
+
+  useEffect(() => {
+    const localStorageData = JSON.parse(
+      localStorage.getItem('@coffee-delivery-data-v-1.0.0')!,
     )
+
+    if (localStorageData?.cart.length > 0 && localStorageData !== null) {
+      setDataPopulate(localStorageData)
+    }
+  }, [])
+
+  return (
+    <CartContext.Provider
+      value={{
+        data,
+        setDataPopulate,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  )
 }
