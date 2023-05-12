@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable array-callback-return */
 import { Trash } from 'phosphor-react'
 import {
   ActionsContainer,
@@ -20,15 +22,16 @@ interface CoffeeItemProps {
 }
 
 export function CoffeeItem({ coffeeData }: CoffeeItemProps) {
-  const [counter, setCounter] = useState<number>(1)
   const { data, setDataPopulate } = useContext(CartContext)
+  const [counter, setCounter] = useState<number>(
+    data.cart[data.cart.findIndex((item) => item.name === coffeeData.name)]
+      .amount!,
+  )
 
   function removeItem() {
-    const index = data.cart.findIndex((item) => {
-      item.id === coffeeData.id
-    })
+    const index = data.cart.findIndex((item) => item.name === coffeeData.name)
     const dataUpdater = { ...data }
-    dataUpdater.cart.slice(index, index + 1)
+    dataUpdater.cart.splice(index, 1)
     setDataPopulate(dataUpdater)
   }
   return (

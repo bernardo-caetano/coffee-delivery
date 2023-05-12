@@ -28,7 +28,7 @@ export function CoffeeCard({ coffeeData }: CoffeeCardProps) {
   const [counter, setCounter] = useState<number>(1)
 
   function insertCoffeData() {
-    const index = data.cart?.findIndex((item) => item.id === coffeeData.id)
+    const index = data.cart?.findIndex((item) => item.name === coffeeData.name) // using name because id change every render
     const cartDataUpdater = { ...data }
     if (index !== -1) {
       cartDataUpdater.cart[index].amount = counter

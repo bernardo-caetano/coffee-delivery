@@ -66,6 +66,7 @@ export const ActionsContainer = styled(BaseContainer)`
     background: ${(props) => props.theme['base-button']};
     border-radius: 6px;
     border: none;
+    cursor: pointer;
 
     font-size: 0.75rem;
     line-height: 160%;
