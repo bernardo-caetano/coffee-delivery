@@ -112,6 +112,18 @@ export const Input = styled.input<InputProps>`
   line-height: 130%;
   color: ${(props) => props.theme['base-text']};
 
+  /* Works for Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Works for Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
   &:focus {
     border-color: ${(props) => props.theme['yellow-dark']};
   }
@@ -140,11 +152,6 @@ export const PaymentButton = styled.button`
   line-height: 160%;
   text-transform: uppercase;
   color: ${(props) => props.theme['base-text']};
-
-  &:focus {
-    border: 1px solid ${(props) => props.theme.purple};
-    background: ${(props) => props.theme['purple-ligth']};
-  }
 `
 
 export const CoffeeListContent = styled(BaseContainer)`

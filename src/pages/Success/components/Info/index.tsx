@@ -4,10 +4,11 @@ import { BoldParagraph, DetailContent, InfoContent } from './styles'
 interface InfoProps {
   typeIcon: 'map' | 'timer' | 'dollar'
   street?: string | null
-  payment?: string | null
+  payment?: 'Cartão de Crédito' | 'Cartão de Débito' | 'Dinheiro' | ''
 }
 
-export function Info({ typeIcon, street = '', payment = '' }: InfoProps) {
+export function Info({ typeIcon, street, payment }: InfoProps) {
+  console.log(street, payment)
   switch (typeIcon) {
     case 'map':
       return (

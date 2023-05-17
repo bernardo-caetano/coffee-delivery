@@ -9,16 +9,19 @@ export interface dataValuesTypes {
     amount: number
     subtotal: number
   }[]
+
   address: {
-    cep: number | null
+    cep: string
     street: string
-    number: number | null
+    number: string
     complement: string
     neighbor: string
     city: string
     uf: string
   }
-  payment: 'credit' | 'debit' | 'money' | ''
+  payment: 'credit' | 'debit' | 'money' | null
+
+  total: number
 }
 
 interface createContextTypes {
@@ -36,15 +39,17 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   const [data, setData] = useState<dataValuesTypes>({
     cart: [],
     address: {
-      cep: null,
+      cep: '',
       street: '',
-      number: null,
+      number: '',
       complement: '',
       neighbor: '',
       city: '',
       uf: '',
     },
-    payment: '',
+    payment: null,
+
+    total: 0,
   })
 
   function setDataPopulate(value: dataValuesTypes) {
