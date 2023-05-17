@@ -32,6 +32,9 @@ export function CoffeeCard({ coffeeData }: CoffeeCardProps) {
     const cartDataUpdater = { ...data }
     if (index !== -1) {
       cartDataUpdater.cart[index].amount = counter
+      cartDataUpdater.cart[index].subtotal =
+        counter *
+        parseFloat(cartDataUpdater.cart[index].price?.replace(',', '.')!)
       setDataPopulate(cartDataUpdater)
     } else {
       cartDataUpdater.cart.push({
@@ -40,6 +43,7 @@ export function CoffeeCard({ coffeeData }: CoffeeCardProps) {
         amount: counter,
         image: coffeeData.image,
         price: coffeeData.price,
+        subtotal: counter * parseFloat(coffeeData.price.replace(',', '.')),
       })
       setDataPopulate(cartDataUpdater)
     }

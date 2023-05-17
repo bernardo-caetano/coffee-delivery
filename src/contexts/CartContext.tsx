@@ -2,11 +2,12 @@ import { createContext, ReactNode, useEffect, useState } from 'react'
 
 export interface dataValuesTypes {
   cart: {
-    id?: string
-    name?: string
-    price?: string
-    image?: string
-    amount?: number
+    id: string
+    name: string
+    price: string
+    image: string
+    amount: number
+    subtotal: number
   }[]
   address: {
     cep: number | null

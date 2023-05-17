@@ -64,3 +64,22 @@ export const Cart = styled.a<CartProps>`
     return `background: ${cartColors[props.background]}`
   }}
 `
+export const CircleCartItemsCounter = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  background-color: ${(props) => props.theme['purple-dark']};
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.75rem;
+  color: white;
+  margin: -0.5rem 0 0 -0.5rem;
+`
+
+export const CartWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+`

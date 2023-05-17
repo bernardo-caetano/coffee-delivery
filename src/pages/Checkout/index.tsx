@@ -19,10 +19,24 @@ import {
   TotalPriceContent,
 } from './styles'
 import { CartContext } from '../../contexts/CartContext'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
 export function Checkout() {
   const { data } = useContext(CartContext)
+  const [total, setTotal] = useState(
+    data.cart.reduce((acc, item) => {
+      acc += item.subtotal
+      return acc
+    }, 0),
+  )
+
+  useEffect(() => {
+    const newTotal = data.cart.reduce((acc, item) => {
+      acc += item.subtotal
+      return acc
+    }, 0)
+    setTotal(newTotal)
+  }, [data])
 
   return (
     <CheckoutContainer>
@@ -83,19 +97,21 @@ export function Checkout() {
         </Title>
         <CoffeeSelectedContent>
           <CoffeeListContent>
-            {data.cart.map((order: any) => {
+            {data.cart.map((order) => {
               return <CoffeeItem key={order.id} coffeeData={order} />
             })}
           </CoffeeListContent>
           <TotalPriceContent>
             <span>
-              <p>Total de itens</p> <p>R$ 29,70</p>
+              <p>Total de itens</p>{' '}
+              <p>R$ {total.toFixed(2).replace('.', ',')}</p>
             </span>
             <span>
               <p>Entrega</p> <p>R$ 3,50</p>
             </span>
             <TotalInfo>
-              <p>Total</p> <p>R$ 32,20</p>
+              <p>Total</p>{' '}
+              <p>R$ {(total + 3.5).toFixed(2).replace('.', ',')}</p>
             </TotalInfo>
             <button type="button">CONFIRMAR PEDIDO</button>
           </TotalPriceContent>

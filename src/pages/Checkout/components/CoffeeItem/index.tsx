@@ -9,15 +9,17 @@ import {
   DetailsContainer,
   Title,
 } from './styles'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../../../contexts/CartContext'
 
 interface CoffeeItemProps {
   coffeeData: {
+    id: string
     image: string
     name: string
-    price: number
+    price: string
     amount: number
+    subtotal: number
   }
 }
 
@@ -34,6 +36,24 @@ export function CoffeeItem({ coffeeData }: CoffeeItemProps) {
     dataUpdater.cart.splice(index, 1)
     setDataPopulate(dataUpdater)
   }
+
+  function updateData() {
+    const index = data.cart?.findIndex((item) => item.name === coffeeData.name) // using name because id change every render
+    const cartDataUpdater = { ...data }
+    if (index !== -1) {
+      cartDataUpdater.cart[index].amount = counter
+      cartDataUpdater.cart[index].subtotal =
+        counter *
+        parseFloat(cartDataUpdater.cart[index].price?.replace(',', '.')!)
+      setDataPopulate(cartDataUpdater)
+    } else {
+      console.log('Error at uptade data: Index not found.')
+    }
+  }
+
+  useEffect(() => {
+    updateData()
+  }, [counter])
   return (
     <CoffeeItemContainer>
       <CoffeeItemContent>
@@ -41,7 +61,10 @@ export function CoffeeItem({ coffeeData }: CoffeeItemProps) {
         <DetailsContainer>
           <Title>
             <p>{coffeeData.name}</p>
-            <p>R$ {coffeeData.price}</p>
+            <p>
+              R$
+              {coffeeData.subtotal.toFixed(2).replace('.', ',')}
+            </p>
           </Title>
           <ActionsContainer>
             <CounterContainer>
