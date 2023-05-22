@@ -5,13 +5,13 @@ import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../contexts/CartContext'
 export function Success() {
   const { data, setDataPopulate } = useContext(CartContext)
-  const localPageData = { ...data }
+  const [address, setAddress] = useState<string>('')
   const [paymentType, setPaymentType] = useState<
     'Cartão de Crédito' | 'Cartão de Débito' | 'Dinheiro' | ''
   >('')
 
   function paymentName() {
-    switch (localPageData.payment) {
+    switch (data.payment) {
       case 'credit':
         return 'Cartão de Crédito'
       case 'debit':
@@ -23,26 +23,29 @@ export function Success() {
         break
     }
   }
-  console.log(localPageData)
-  useEffect(() => {
-    setPaymentType(() => paymentName()!)
-    setDataPopulate({
-      cart: [],
-      address: {
-        cep: '',
-        street: '',
-        number: '',
-        complement: '',
-        neighbor: '',
-        city: '',
-        uf: '',
-      },
-      payment: null,
 
-      total: 0,
-    })
-    localStorage.clear()
-  }, [])
+  useEffect(() => {
+    if (!!data.payment && !!data.address.street && !!data.address.number) {
+      setPaymentType(() => paymentName()!)
+      setAddress(`${data.address.street}, ${data.address.number}`)
+      setDataPopulate({
+        cart: [],
+        address: {
+          cep: '',
+          street: '',
+          number: '',
+          complement: '',
+          neighbor: '',
+          city: '',
+          uf: '',
+        },
+        payment: null,
+
+        total: 0,
+      })
+      localStorage.clear()
+    }
+  }, [data])
   return (
     <SuccessContainer>
       <Title>
@@ -51,10 +54,7 @@ export function Success() {
       </Title>
       <SuccessContent>
         <DeliveryInfo>
-          <Info
-            typeIcon="map"
-            street={`${localPageData.address.street}, ${localPageData.address.number}`}
-          />
+          <Info typeIcon="map" street={address} />
           <Info typeIcon="timer" />
           <Info typeIcon="dollar" payment={paymentType} />
         </DeliveryInfo>

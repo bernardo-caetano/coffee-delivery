@@ -7,6 +7,9 @@ export const HomeContainer = styled.main`
   flex-direction: column;
   width: 100%;
   padding-bottom: 9.8125rem;
+  @media (max-width: 600px) {
+    padding: 0 1rem 1rem 1rem;
+  }
 `
 
 export const HomeContent = styled.div`
@@ -49,4 +52,8 @@ export const CoffeeListContent = styled.div`
   grid-template-columns: auto auto auto auto;
   gap: 2.5rem 2rem;
   width: 100%;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  }
 `

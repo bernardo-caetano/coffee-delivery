@@ -8,7 +8,6 @@ interface InfoProps {
 }
 
 export function Info({ typeIcon, street, payment }: InfoProps) {
-  console.log(street, payment)
   switch (typeIcon) {
     case 'map':
       return (

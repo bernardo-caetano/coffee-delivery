@@ -6,6 +6,9 @@ export const HeaderContainer = styled.header`
   justify-content: center;
   width: 100%;
   padding: 2rem 0;
+  @media (max-width: 768px) {
+    padding: 1rem 1rem;
+  }
 `
 export const LocalizationCartContainer = styled.div`
   display: flex;
