@@ -139,7 +139,7 @@ export function Checkout() {
           />
           <FormContent>
             <Input
-              width="12.5rem"
+              style={{ width: '12.5rem' }}
               placeholder="CEP"
               required
               type="number"
@@ -147,7 +147,7 @@ export function Checkout() {
               onChange={(e) => updateDeliveryData(e)}
             />
             <Input
-              width="100%"
+              style={{ width: '100%' }}
               placeholder="Rua"
               required
               type="text"
@@ -157,14 +157,14 @@ export function Checkout() {
             <InputContainer>
               <Input
                 name="number"
-                width="12.5rem"
+                style={{ width: '12.5rem' }}
                 placeholder="Número"
                 required
                 type="number"
                 onChange={(e) => updateDeliveryData(e)}
               />
               <Input
-                width="100%"
+                style={{ width: '100%' }}
                 placeholder="Complemento"
                 type="text"
                 name="complement"
@@ -174,14 +174,14 @@ export function Checkout() {
             <InputContainer>
               <Input
                 name="neighbor"
-                width="12.5rem"
+                style={{ width: '12.5rem' }}
                 placeholder="Bairro"
                 required
                 type="text"
                 onChange={(e) => updateDeliveryData(e)}
               />
               <Input
-                width="100%"
+                style={{ width: '100%' }}
                 placeholder="Cidade"
                 required
                 type="text"
@@ -189,7 +189,7 @@ export function Checkout() {
                 onChange={(e) => updateDeliveryData(e)}
               />
               <Input
-                width="3.75rem"
+                style={{ width: '3.75rem' }}
                 placeholder="UF"
                 required
                 type="text"

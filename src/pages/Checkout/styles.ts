@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-interface InputProps {
-  width: string
-}
-
 const BaseContainer = styled.div`
   display: flex;
   align-items: center;
@@ -17,11 +13,22 @@ export const CheckoutContainer = styled.div`
   width: 100%;
   gap: 2rem;
   max-width: 70rem;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 40rem;
+  }
 `
 
 export const AskContainer = styled(BaseContainer)`
   flex-direction: column;
   gap: 0.75rem;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
 `
 
 export const Title = styled.div`
@@ -39,6 +46,11 @@ export const Title = styled.div`
     line-height: 130%;
     color: ${(props) => props.theme['base-subtitle']};
   }
+
+  @media (max-width: 1200px) {
+    max-width: 40rem;
+    padding: 0 1rem;
+  }
 `
 
 export const FormContainer = styled.div`
@@ -55,6 +67,16 @@ export const FormContainer = styled.div`
   order: 0;
   align-self: stretch;
   flex-grow: 0;
+
+  @media (max-width: 1200px) {
+    max-width: 40rem;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
+    height: 100%;
+  }
 `
 
 export const PaymentContainer = styled.div`
@@ -71,6 +93,15 @@ export const PaymentContainer = styled.div`
   align-self: stretch;
   flex-grow: 0;
   flex-direction: column;
+
+  @media (max-width: 1200px) {
+    max-width: 40rem;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    height: 100%;
+  }
 `
 export const CoffeeSelectedContainer = styled(BaseContainer)`
   flex-direction: column;
@@ -85,6 +116,12 @@ export const CoffeeSelectedContent = styled(BaseContainer)`
   background: ${(props) => props.theme['base-card']};
   border-radius: 6px 44px;
   flex-direction: column;
+
+  @media (max-width: 1200px) {
+    max-width: 40rem;
+    width: 100%;
+    padding: 1rem;
+  }
 `
 export const FormContent = styled.div`
   display: flex;
@@ -94,14 +131,21 @@ export const FormContent = styled.div`
   gap: 1rem;
   width: 100%;
   margin-top: 2rem;
+
+  @media (max-width: 600px) {
+    justify-content: flex-start;
+  }
 `
 
 export const InputContainer = styled(BaseContainer)`
   width: 100%;
   gap: 0.75rem;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `
-export const Input = styled.input<InputProps>`
-  width: ${(props) => props.width};
+export const Input = styled.input`
   height: 2.625rem;
   padding: 0.75rem;
   background: ${(props) => props.theme['base-input']};
@@ -127,11 +171,19 @@ export const Input = styled.input<InputProps>`
   &:focus {
     border-color: ${(props) => props.theme['yellow-dark']};
   }
+
+  @media (max-width: 600px) {
+    width: 100% !important;
+  }
 `
 export const PaymmentContent = styled(BaseContainer)`
   width: 100%;
   gap: 0.75rem;
   margin-top: 2rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `
 
 export const PaymentButton = styled.button`
@@ -152,6 +204,17 @@ export const PaymentButton = styled.button`
   line-height: 160%;
   text-transform: uppercase;
   color: ${(props) => props.theme['base-text']};
+
+  @media (max-width: 1200px) {
+    max-width: 11.17rem;
+    width: 100%;
+    text-align: start;
+  }
+
+  @media (max-width: 1200px) {
+    max-width: 100%;
+    justify-content: center;
+  }
 `
 
 export const CoffeeListContent = styled(BaseContainer)`
@@ -190,6 +253,11 @@ export const TotalPriceContent = styled(BaseContainer)`
     text-transform: uppercase;
     color: ${(props) => props.theme.white};
     font-stretch: 100;
+
+    @media (max-width: 400px) {
+      padding: 0.75rem 1rem;
+      width: 100%;
+    }
   }
 `
 

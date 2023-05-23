@@ -8,6 +8,12 @@ export const HeaderContainer = styled.header`
   padding: 2rem 0;
   @media (max-width: 768px) {
     padding: 1rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: ${(props) => props.theme.background};
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
   }
 `
 export const LocalizationCartContainer = styled.div`

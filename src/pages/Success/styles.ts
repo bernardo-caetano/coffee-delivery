@@ -9,6 +9,10 @@ const BaseContainer = styled.div`
 export const SuccessContainer = styled(BaseContainer)`
   max-width: 70rem;
   flex-direction: column;
+
+  @media (max-width: 1200px) {
+    padding: 0 1rem;
+  }
 `
 export const Title = styled(BaseContainer)`
   flex-direction: column;
@@ -32,6 +36,15 @@ export const Title = styled(BaseContainer)`
 `
 export const SuccessContent = styled(BaseContainer)`
   gap: 6.375rem;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 `
 export const DeliveryInfo = styled(BaseContainer)`
   flex-direction: column;
@@ -41,4 +54,9 @@ export const DeliveryInfo = styled(BaseContainer)`
   border: 1px solid #dbac2c;
   border-radius: 6px 36px;
   min-width: 32.875rem;
+
+  @media (max-width: 1200px) {
+    min-width: 0px;
+    width: 100%;
+  }
 `
