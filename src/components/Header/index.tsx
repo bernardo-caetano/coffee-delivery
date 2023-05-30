@@ -7,7 +7,7 @@ import {
   Localization,
   LocalizationCartContainer,
 } from './styles'
-import Logo from '../../assets/images/logo.svg'
+import Logo from '../../assets/images/Logo.svg'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
